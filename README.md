@@ -16,7 +16,7 @@ git clone https://github.com/ConorClery/valuation-backend
 ## General Project Dev
 ```sh
 cd <project-name>
-virtualenv venv
+source venv/bin/activate
 cd <repo-clone>
 python3 manage.py runserver
 ```
