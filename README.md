@@ -11,7 +11,7 @@ virtualenv venv
 source venv/bin/activate
 pip3 install django
 pip3 install djangorestframework
-git clone 
+git clone https://github.com/ConorClery/valuation-backend
 ```
 ## General Project Dev
 ```sh
