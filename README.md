@@ -12,6 +12,9 @@ source venv/bin/activate
 pip3 install django
 pip3 install djangorestframework
 git clone https://github.com/ConorClery/valuation-backend
+cd valuation-backend
+python3 manage.py makemigrations
+python3 manage.py migrate --run-syncdb
 ```
 ## General Project Dev
 ```sh
