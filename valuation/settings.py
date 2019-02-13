@@ -31,18 +31,29 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.admin', # for admin profiles and interface
+    'django.contrib.auth',  # for auth in admin interface
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'rest_framework',
-    'rest_framework.authtoken', # new!
-    'rest_auth', # new!
-    'api',
-    'todos',
+    'django.contrib.staticfiles', # to collect all visual templates in production mode
+    'rest_framework', # the heavy weight of the whole operation, all seetings start with REST
+    'rest_framework.authtoken', # manages login sessions
+    'rest_auth', # handles logins
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
+    'api', # custom app
+    'todos', # custom app
+    'users', # custom app
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+SITE_ID = 1
+
+AUTH_USER_MODEL = 'users.CustomUser'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
