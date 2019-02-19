@@ -1,4 +1,5 @@
 # valuation-backend
+Sample todo-list app, user creation of two different types (though i think it needs redoing)
 
 ## Installation
 Alright boyos, you will need python3, pip3 and virtualenv to get going.
