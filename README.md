@@ -1,4 +1,4 @@
-# valuation-backend
+# werkly-backend
 Sample todo-list app, user creation of two different types (though i think it needs redoing)
 
 ## Installation
@@ -12,7 +12,7 @@ virtualenv venv
 source venv/bin/activate
 pip3 install django
 pip3 install djangorestframework
-git clone https://github.com/ConorClery/valuation-backend
+git clone https://github.com/ConorClery/werkly-api
 cd valuation-backend
 python3 manage.py makemigrations
 python3 manage.py migrate --run-syncdb
@@ -24,4 +24,3 @@ source venv/bin/activate
 cd <repo-clone>
 python3 manage.py runserver
 ```
-
