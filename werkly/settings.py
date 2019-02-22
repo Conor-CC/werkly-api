@@ -53,7 +53,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SITE_ID = 1
 
-AUTH_USER_MODEL = 'users.CustomUser'
+AUTH_USER_MODEL = 'users.User'
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'users.serializers.RegisterSerializer',
+}
+# ACCOUNT_ADAPTER = 'users.adapter.CustomAccountAdapter'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
