@@ -7,7 +7,7 @@ from django.core.exceptions import PermissionDenied
 
 # Create your views here.
 
-class UserListView(generics.ListCreateAPIView):
+class UserListView(generics.ListAPIView):
 	queryset = models.User.objects.all()
 	serializer_class = serializers.UserSerializer
 
