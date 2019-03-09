@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'api', # custom app
     'todos', # custom app
     'users', # custom app
+    'jobs', # custom app
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -60,6 +61,11 @@ REST_AUTH_REGISTER_SERIALIZERS = {
 # ACCOUNT_ADAPTER = 'users.adapter.CustomAccountAdapter'
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ]
