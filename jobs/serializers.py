@@ -9,7 +9,7 @@ class JobsListSerializer(serializers.ModelSerializer):
 class WorkerUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Job
-        fields = ('name')
+        fields = ('name',)
 
 class JobsCreationSerializer(serializers.ModelSerializer):
     class Meta:
