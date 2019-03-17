@@ -32,6 +32,6 @@ class CreateJobView(generics.CreateAPIView):
     queryset = models.Job.objects.all()
     def perform_create(self, serializer_class):
         if self.request.user.user_type == 'E':
-            serializer_class.save()
+            serializer_class.save(employer_id=self.request.user.id)
         else:
             PermissionDenied
