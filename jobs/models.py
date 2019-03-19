@@ -24,3 +24,13 @@ class Details(models.Model):
 	address = models.TextField()
 	description = models.TextField()
 	required_experience = models.TextField()
+
+
+class Status(models.Model):
+	job = models.OneToOneField(Job, related_name='status', on_delete=models.CASCADE)
+    accepted = models.BooleanField(default=False)
+    completed = models.BooleanField(default=False)
+    pay = models.BooleanField(default=False)
+	worker_time_in = models.TimeField()
+	worker_time_out = models.TimeField()
+	amount_paid = models.DecimalField(decimal_places=2, max_digits=12)
