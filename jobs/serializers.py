@@ -24,7 +24,7 @@ class JobsListSerializer(serializers.ModelSerializer):
 class WorkerUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Job
-        fields = ('name',)
+        fields = ('employer_id',)
 
 class TagsSerializer(serializers.ModelSerializer):
     class Meta:
