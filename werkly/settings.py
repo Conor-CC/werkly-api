@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'rest_auth.registration',
     'api', # custom app
-    'todos', # custom app
     'users', # custom app
     'jobs', # custom app
 ]

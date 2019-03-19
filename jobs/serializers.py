@@ -52,7 +52,7 @@ class DetailsSerializer(serializers.ModelSerializer):
 
 class StatusSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.Details
+        model = models.Status
         fields = ('id', 'accepted', 'completed', 'pay', 'worker_time_in', 'worker_time_out', 'amount_paid')
 
 class JobsCreationSerializer(serializers.ModelSerializer):
@@ -65,7 +65,6 @@ class JobsCreationSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         details_data = validated_data.pop('details')
         status_data = validated_data.pop('status')
-
         job_object = models.Job.objects.create(**validated_data)
         models.Details.objects.create(job=job_object, **details_data)
         models.Status.objects.create(job=job_object, **status_data)

@@ -20,17 +20,15 @@ class Details(models.Model):
 	time_to = models.TimeField()
 	duration = models.DurationField()
 	pay_per_hour = models.DecimalField(decimal_places=2, max_digits=12)
-	# tags = models.ManyToManyField(Tag, related_name='job_tags')
 	address = models.TextField()
 	description = models.TextField()
 	required_experience = models.TextField()
 
-
 class Status(models.Model):
-	job = models.OneToOneField(Job, related_name='status', on_delete=models.CASCADE)
+    job = models.OneToOneField(Job, related_name='status', on_delete=models.CASCADE)
     accepted = models.BooleanField(default=False)
     completed = models.BooleanField(default=False)
     pay = models.BooleanField(default=False)
-	worker_time_in = models.TimeField()
-	worker_time_out = models.TimeField()
-	amount_paid = models.DecimalField(decimal_places=2, max_digits=12)
+    worker_time_in = models.TimeField(null=True, blank=True)
+    worker_time_out = models.TimeField(null=True, blank=True)
+    amount_paid = models.DecimalField(decimal_places=2, max_digits=12, default=0.00)
