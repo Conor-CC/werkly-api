@@ -1,5 +1,5 @@
 # werkly-backend
-Sample todo-list app, user creation of two different types (though i think it needs redoing)
+User model and Jobs model contained within app
 
 ## Installation
 Alright boyos, you will need python3, pip3 and virtualenv to get going.
