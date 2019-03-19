@@ -1,5 +1,5 @@
 # werkly-backend
-Sample todo-list app, user creation of two different types (though i think it needs redoing)
+User model and Jobs model contained within app
 
 ## Installation
 Alright boyos, you will need python3, pip3 and virtualenv to get going.
@@ -11,15 +11,16 @@ cd <project-name>
 virtualenv venv
 source venv/bin/activate
 git clone https://github.com/ConorClery/werkly-api
-pip3 install -r requirements.txt
 cd werkly-api
+pip3 install -r requirements.txt
 python3 manage.py makemigrations
 python3 manage.py migrate --run-syncdb
+python3 manage.py createsuperuser
 ```
 ## General Project Dev
 ```sh
-cd <project-name>
+cd <project=root-directory>
 source venv/bin/activate
-cd <repo-clone>
+cd werkly-api
 python3 manage.py runserver
 ```
