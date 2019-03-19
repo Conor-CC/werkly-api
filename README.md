@@ -10,10 +10,9 @@ mkdir <project-name>
 cd <project-name>
 virtualenv venv
 source venv/bin/activate
-pip3 install django
-pip3 install djangorestframework
 git clone https://github.com/ConorClery/werkly-api
-cd valuation-backend
+pip3 install -r requirements.txt
+cd werkly-api
 python3 manage.py makemigrations
 python3 manage.py migrate --run-syncdb
 ```
