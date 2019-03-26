@@ -1,3 +1,4 @@
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.core.validators import RegexValidator
@@ -14,6 +15,5 @@ class User(AbstractUser):
     )
     user_type = models.CharField(max_length=8, choices=USER_TYPE, default="W")
     wants_to_receive_marketing_emails = models.BooleanField(default=False)
-
     def __str__(self):
         return self.email
