@@ -6,7 +6,7 @@ class JobsListSerializer(serializers.ModelSerializer):
     status = serializers.SerializerMethodField()
     class Meta:
         model = models.Job
-        fields = ('id', 'employer_id', 'details', 'status')
+        fields = ('id', 'employer_id', 'details', 'status', 'right_swipes')
 
     def get_details(self, obj):
         details = {
@@ -37,7 +37,7 @@ class JobsListSerializer(serializers.ModelSerializer):
 class WorkerUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Job
-        fields = ('employer_id',)
+        fields = ('right_swipes',)
 
 class TagsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -58,9 +58,10 @@ class StatusSerializer(serializers.ModelSerializer):
 class JobsCreationSerializer(serializers.ModelSerializer):
     details = DetailsSerializer(many=False)
     status = StatusSerializer(many=False)
+    #right_swipes = serializers.ListField(child=serializers.CharField())
     class Meta:
         model = models.Job
-        fields = ('id', 'employer_id', 'details', 'status')
+        fields = ('id', 'employer_id', 'details', 'status', 'right_swipes')
 
     def create(self, validated_data):
         details_data = validated_data.pop('details')
