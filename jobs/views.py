@@ -13,12 +13,13 @@ class JobListView(generics.ListAPIView):
     serializer_class = serializers.JobsListSerializer
 
 # Handle all possible worker patch requests to job
-class WorkerUpdateView(generics.UpdateAPIView):
+class RightSwipe(generics.UpdateAPIView):
     authentication_classes = (SessionAuthentication, TokenAuthentication)
     permission_classes = (IsAuthenticated,)
     queryset = models.Job.objects.all()
     serializer_class = serializers.WorkerUpdateSerializer
     def partial_update(self, serializer_class):
+        jobSwiped = models.Job.objects.get(id=self.kwargs['pk'])
         if self.request.user.user_type == 'W':
             serializer_class.save()
         else:

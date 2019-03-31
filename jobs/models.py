@@ -6,6 +6,7 @@ MAX_JOB_SWIPES_ALLOWED = 50
 
 class Job(models.Model):
     employer_id = models.PositiveIntegerField()
+    right_swipes = ArrayField(models.TextField(), null=True, blank=True)
     def __str__(self):
         return '%s'%(self.details.job_name)
 

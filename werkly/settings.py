@@ -25,7 +25,7 @@ SECRET_KEY = 'y$q(894q8*3$d0mlwmen1kcj7!pntuxlci26c4*q&k2^hv8@5s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.0.2.2', 'localhost']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -110,7 +110,7 @@ DATABASES = {
         'NAME': 'werklydb',
         'USER': 'werkly_admin',
         'PASSWORD': 'werklyadmin',
-        'HOST': 'werkly-dev.cubuu9hfrqkm.eu-west-1.rds.amazonaws.com',
+        'HOST': 'werkly-test.cubuu9hfrqkm.eu-west-1.rds.amazonaws.com',
         'PORT': 5432
     }
 }

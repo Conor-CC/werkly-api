@@ -6,5 +6,5 @@ from . import views
 urlpatterns = [
     path('list/', views.JobListView.as_view()),
     path('create/', views.CreateJobView.as_view()),
-    path('worker-update/<int:pk>/', views.WorkerUpdateView.as_view()),
+    path('rightSwipe/<int:pk>/', views.RightSwipe.as_view()),
 ]
