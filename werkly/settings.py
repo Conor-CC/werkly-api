@@ -110,7 +110,7 @@ DATABASES = {
         'NAME': 'werklydb',
         'USER': 'werkly_admin',
         'PASSWORD': 'werklyadmin',
-        'HOST': 'werkly-test.cubuu9hfrqkm.eu-west-1.rds.amazonaws.com',
+        'HOST': 'werkly-dev.cubuu9hfrqkm.eu-west-1.rds.amazonaws.com',
         'PORT': 5432
     }
 }

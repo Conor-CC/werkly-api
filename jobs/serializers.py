@@ -30,7 +30,7 @@ class JobsListSerializer(serializers.ModelSerializer):
             'pay': obj.status.pay,
             'worker_time_in': obj.status.worker_time_in,
             'worker_time_out': obj.status.worker_time_out,
-            'amount_paid': abj.status.amount_paid
+            'amount_paid': obj.status.amount_paid
         }
         return status
 
@@ -38,6 +38,7 @@ class WorkerUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Job
         fields = ('right_swipes',)
+
 
 class TagsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -58,7 +59,6 @@ class StatusSerializer(serializers.ModelSerializer):
 class JobsCreationSerializer(serializers.ModelSerializer):
     details = DetailsSerializer(many=False)
     status = StatusSerializer(many=False)
-    #right_swipes = serializers.ListField(child=serializers.CharField())
     class Meta:
         model = models.Job
         fields = ('id', 'employer_id', 'details', 'status', 'right_swipes')
