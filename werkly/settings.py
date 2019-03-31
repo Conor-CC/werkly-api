@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['10.0.2.2', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
     'django.contrib.admin', # for admin profiles and interface
     'django.contrib.auth',  # for auth in admin interface
     'django.contrib.contenttypes',
@@ -38,12 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles', # to collect all visual templates in production mode
     'rest_framework', # the heavy weight of the whole operation, all seetings start with REST
+    'rest_auth.registration',
     'rest_framework.authtoken', # manages login sessions
     'rest_auth', # handles logins
-    'django.contrib.sites',
     'allauth',
     'allauth.account',
-    'rest_auth.registration',
     'api', # custom app
     'users', # custom app
     'jobs', # custom app
@@ -106,8 +106,12 @@ WSGI_APPLICATION = 'werkly.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'werklydb',
+        'USER': 'werkly_admin',
+        'PASSWORD': 'werklyadmin',
+        'HOST': 'werkly-dev.cubuu9hfrqkm.eu-west-1.rds.amazonaws.com',
+        'PORT': 5432
     }
 }
 
