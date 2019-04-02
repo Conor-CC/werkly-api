@@ -4,14 +4,17 @@ from django.core.validators import RegexValidator
 from django.contrib.postgres.fields import ArrayField
 MAX_JOB_SWIPES_ALLOWED = 50
 
-class Job(models.Model):
-    employer_id = models.PositiveIntegerField()
-    right_swipes = ArrayField(models.TextField(), null=True, blank=True)
-    def __str__(self):
-        return '%s'%(self.details.job_name)
+
 
 class Tag(models.Model):
 	tag = models.CharField(max_length=64, unique=True)
+
+class Job(models.Model):
+    employer_id = models.PositiveIntegerField()
+    right_swipes = ArrayField(models.TextField(), null=True, blank=True)
+    tags = models.ManyToManyField(Tag, related_name='tags')
+    def __str__(self):
+        return '%s'%(self.details.job_name)
 
 class Details(models.Model):
 	job = models.OneToOneField(Job, related_name='details', on_delete=models.CASCADE)
