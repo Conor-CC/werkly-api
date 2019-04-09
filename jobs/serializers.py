@@ -4,9 +4,10 @@ from . import models
 class JobsListSerializer(serializers.ModelSerializer):
     details = serializers.SerializerMethodField()
     status = serializers.SerializerMethodField()
+
     class Meta:
         model = models.Job
-        fields = ('id', 'employer_id', 'details', 'status', 'right_swipes')
+        fields = ('id', 'employer_id', 'details', 'status', 'right_swipes', 'tags')
 
     def get_details(self, obj):
         details = {
@@ -59,14 +60,18 @@ class StatusSerializer(serializers.ModelSerializer):
 class JobsCreationSerializer(serializers.ModelSerializer):
     details = DetailsSerializer(many=False)
     status = StatusSerializer(many=False)
+    tags = TagsSerializer(many=True)
     class Meta:
         model = models.Job
-        fields = ('id', 'employer_id', 'details', 'status', 'right_swipes')
+        fields = ('id', 'employer_id', 'details', 'status', 'right_swipes', 'tags')
 
     def create(self, validated_data):
         details_data = validated_data.pop('details')
         status_data = validated_data.pop('status')
+        tag_data = validated_data.pop('tags')
         job_object = models.Job.objects.create(**validated_data)
+        for obj in tag_data:
+            job_object.tags.add(obj)
         models.Details.objects.create(job=job_object, **details_data)
         models.Status.objects.create(job=job_object, **status_data)
 
